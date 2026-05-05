@@ -1,11 +1,8 @@
 import express, { response } from "express";
-
+import taskRoute from "./routes/taskRoutes.js";
 const app = express();
+app.use("/api/tasks", taskRoute);
 
 app.listen(5001, () => {
   console.log("server is running!");
-});
-
-app.get("/api/tasks", (request, response) => {
-  response.status(400).send("you has a lot tasks needing to do!");
 });
