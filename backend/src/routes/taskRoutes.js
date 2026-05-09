@@ -4,7 +4,7 @@ import {
   createTask,
   getAllTask,
   deleteTask,
-} from "../controllers/taskController";
+} from "../controllers/taskController.js";
 const router = express.Router();
 
 router.get("/", getAllTask);
