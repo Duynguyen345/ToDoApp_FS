@@ -1,9 +1,13 @@
 import mongoose from "mongoose";
 
-const connectDB = async () => {
+export const connectDB = async () => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://nguyenvanngu274_db_user:otdNvJwLmSkk47lh@cluster0.qrbdszq.mongodb.net/?appName=Cluster0",
-    );
-  } catch (error) {}
+    await mongoose.connect(process.env.MONGO_URI, {
+      serverSelectionTimeoutMS: 5000,
+      family: 4,
+    });
+    console.log("Kết nối MongoDB thành công! 🎉");
+  } catch (error) {
+    console.error("Lỗi kết nối MongoDB:", error.message);
+  }
 };
